@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="Yon Manchego">
+		<meta name="decription" content="Pagina aeropuerto Letizia Amazonas Colombia">
+		<title>Registro Usuario</title>
+	
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/menu.css') }}">
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/grid.css') }}">
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/form.css') }}">
+		<script src="{{ url_for('static',filename='validarformulario.js') }}"> </script>
+		<link rel="shortcut icon" href="{{url_for ('static', filename = './img/airplaneshape_119680.ico')}}" type="image/x-icon">
+		
+	</head>
+
+<body class="grid-container">
+	
+	<header class="header"><h3>Pagina base para desarollo de proyecto</h1></header>
+	<nav class="navbar">
+		<ul class="menu">
+			<li><a href="{{ url_for('index')}}">Incio</a></li>
+			<li><a href="{{url_for('reservaVuelos')}}">Reserva de vuelos</a></li>
+			<li><a href="">Usuarios</a>
+				<ul class="submenu">
+					<li><a href="{{ url_for('loginUsuario')}}">Login Usuario</a></li>
+					<li><a href="{{ url_for('registroUsuario')}}">Registro Usuario</a></li>
+				</ul>
+			</li>
+			<li><a href="">Intranet</a>
+				<ul class="submenu">
+					<li><a href="{{ url_for('loginPilotos')}}">Pilotos</a></li>   
+					<li><a href="{{ url_for('loginAdmin')}}">Aministrador</a></li>
+					<li><a href="{{ url_for('busquedaVuelo')}}" >Vuelos</a></li>
+				</ul>
+			</li>
+		</ul>
+		<br>
+	</nav>
+	<article class="articulo">
+		<form id="searchform" action="{{url_for('registroVuelo')}}" method="post" name="formRegistroVuelo" onsubmit="formRegistroVuelo">
+
+			<div>
+				<input type="search" name="busquedamusica" placeholder="# Vuelo">
+				<input type="submit" value="Buscar">
+					<a href="{{ url_for('registroVuelo')}}">
+						<img src="{{ url_for('static', filename='img/add.png') }}"/>
+					</a>
+			</div>
+
+			<table>
+				
+				<tr></tr>
+
+				<tr id="altoForm">
+					<td><label for="codVuelo"># Vuelo</label></td>
+					<td><label for="codVuelo">Aerolinea</label></td>
+					<td><label for="codVuelo">Origen</label></td>
+					<td><label for="codVuelo">Destino</label></td>
+					<td><label for="codVuelo">Fecha</label></td>
+					<td><label for="codVuelo">Hora</label></td>
+					<td><label for="codVuelo">Avion</label></td>
+					<td><label for="codVuelo">Piloto</label></td>
+					<td><label for="codVuelo">Estado</label></td>
+					<td></td>
+				</tr>
+
+				<tr id="altoForm">
+					<td><label for="codVuelo">1</label></td>
+					<td><label for="codVuelo">Avianca</label></td>
+					<td><label for="codVuelo">Leticia</label></td>
+					<td><label for="codVuelo">Bogota</label></td>
+					<td><label for="codVuelo">28-09-2021</label></td>
+					<td><label for="codVuelo">10:00 am</label></td>
+					<td><label for="codVuelo">Airbus A330</label></td>
+					<td><label for="codVuelo">John Angarita</label></td>
+					<td><label for="codVuelo">Completo</label></td>
+					<td>
+						<a href="{{ url_for('editVuelo')}}">
+							<img src="{{ url_for('static', filename='img/edit.png') }}" disable/>
+						</a>
+						<a href="{{ url_for('eliminarVuelo')}}">
+							<img src="{{ url_for('static', filename='img/delete.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td><label for="codVuelo">2</label></td>
+					<td><label for="codVuelo">American Airlines</label></td>
+					<td><label for="codVuelo">Leticia</label></td>
+					<td><label for="codVuelo">Barranquilla</label></td>
+					<td><label for="codVuelo">28-09-2021</label></td>
+					<td><label for="codVuelo">11:00 am</label></td>
+					<td><label for="codVuelo">HK5335</label></td>
+					<td><label for="codVuelo">Yeimer Rodelo</label></td>
+					<td><label for="codVuelo">Completo</label></td>
+					<td>
+						<a href="{{ url_for('editVuelo')}}">
+							<img src="{{ url_for('static', filename='img/edit.png') }}" disable/>
+						</a>
+						<a href="{{ url_for('eliminarVuelo')}}">
+							<img src="{{ url_for('static', filename='img/delete.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td><label for="codVuelo">3</label></td>
+					<td><label for="codVuelo">Avianca</label></td>
+					<td><label for="codVuelo">Leticia</label></td>
+					<td><label for="codVuelo">Bogota</label></td>
+					<td><label for="codVuelo">28-09-2021</label></td>
+					<td><label for="codVuelo">10:00 am</label></td>
+					<td><label for="codVuelo">Airbus A320</label></td>
+					<td><label for="codVuelo">Jose Pinto</label></td>
+					<td><label for="codVuelo">Completo</label></td>
+					<td>
+						<a href="{{ url_for('editVuelo')}}">
+							<img src="{{ url_for('static', filename='img/edit.png') }}" disable/>
+						</a>
+						<a href="{{ url_for('eliminarVuelo')}}">
+							<img src="{{ url_for('static', filename='img/delete.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td><label for="codVuelo">4</label></td>
+					<td><label for="codVuelo">LATAM</label></td>
+					<td><label for="codVuelo">Leticia</label></td>
+					<td><label for="codVuelo">Santa Marta</label></td>
+					<td><label for="codVuelo">29-09-2021</label></td>
+					<td><label for="codVuelo">10:00 am</label></td>
+					<td><label for="codVuelo">Airbus A330</label></td>
+					<td><label for="codVuelo">John Angarita</label></td>
+					<td><label for="codVuelo">Cancelado</label></td>
+					<td>
+						<a href="{{ url_for('editVuelo')}}">
+							<img src="{{ url_for('static', filename='img/edit.png') }}" disable/>
+						</a>
+						<a href="{{ url_for('eliminarVuelo')}}">
+							<img src="{{ url_for('static', filename='img/delete.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td><label for="codVuelo">5</label></td>
+					<td><label for="codVuelo">Viva Air</label></td>
+					<td><label for="codVuelo">Leticia</label></td>
+					<td><label for="codVuelo">Bogota</label></td>
+					<td><label for="codVuelo">29-09-2021</label></td>
+					<td><label for="codVuelo">10:00 am</label></td>
+					<td><label for="codVuelo">Airbus A330</label></td>
+					<td><label for="codVuelo">John Angarita</label></td>
+					<td><label for="codVuelo">En Vuelo</label></td>
+					<td>
+						<a href="{{ url_for('editVuelo')}}">
+							<img src="{{ url_for('static', filename='img/edit.png') }}" disable/>
+						</a>
+						<a href="{{ url_for('eliminarVuelo')}}">
+							<img src="{{ url_for('static', filename='img/delete.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td><label for="codVuelo">6</label></td>
+					<td><label for="codVuelo">Copa Airlines</label></td>
+					<td><label for="codVuelo">Leticia</label></td>
+					<td><label for="codVuelo">Bogota</label></td>
+					<td><label for="codVuelo">30-09-2021</label></td>
+					<td><label for="codVuelo">10:00 am</label></td>
+					<td><label for="codVuelo">ATR-72</label></td>
+					<td><label for="codVuelo">John Angarita</label></td>
+					<td><label for="codVuelo">Programado</label></td>
+					<td>
+						<a href="{{ url_for('editVuelo')}}">
+							<img src="{{ url_for('static', filename='img/edit.png') }}" disable/>
+						</a>
+						<a href="{{ url_for('eliminarVuelo')}}">
+							<img src="{{ url_for('static', filename='img/delete.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+			</table> 
+        </form>
+	</article>
+</body>
+
+<footer class="footer">Pie de pagina...........</footer>
+</html>

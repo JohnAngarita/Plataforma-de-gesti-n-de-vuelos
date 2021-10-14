@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+
+html{
+    height: 100%;
+    background-color: rgba(254,255,222 ,1);
+    margin: auto;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    min-height: 100%;
+    width: 980px;
+    margin: auto;
+}
+
+
+
+.grid-container > * {
+box-shadow: 1px 1px 7px 0px rgba(0, 0, 0, 0.75);
+border-radius: 1px;
+/*padding: 10px;*/
+/*text-align: center;*/
+}
+
+.header{
+    grid-area: header;
+    background-color: rgba(97, 111, 57, 1);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 40px;
+
+    background: #649173;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #DBD5A4, #649173);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #DBD5A4, #649173); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+.navbar{
+    grid-area: navbar;
+    background-color: rgba(245,217,142 ,1);
+}
+
+.articulo{
+    grid-area: articulo;
+    background-color: rgba(221,255,188 ,0.5);
+}
+
+.footer{
+    grid-area: footer;
+    background-color: rgba(82, 115, 77, 0.856);
+}
+
+.grid-container {
+    display: grid;
+    gap: 5px;
+    grid-template-areas: 
+    "header"
+    "navbar"
+    "articulo"
+    "footer"; 
+}
+
+@media (min-width: 600px) {
+   .grid-container{
+        grid-template: 
+        "header header" 100px
+        "navbar navbar" 50px
+        "articulo articulo" auto
+        "footer footer" 70px /
+        50% 50%;
+        ;
+   }
+    
+}
+

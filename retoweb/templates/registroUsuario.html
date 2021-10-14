@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="Yon Manchego">
+		<meta name="decription" content="Pagina aeropuerto Letizia Amazonas Colombia">
+		<title>Registro Usuario</title>
+	
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/menu.css') }}">
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/grid.css') }}">
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/form.css') }}">
+		<script src="{{ url_for('static',filename='validarformulario.js') }}"> </script>
+		<link rel="shortcut icon" href="{{url_for ('static', filename = './img/airplaneshape_119680.ico')}}" type="image/x-icon">
+		
+	</head>
+
+<body class="grid-container">
+	
+	<header class="header"><h3>Pagina base para desarollo de proyecto</h1></header>
+	<nav class="navbar">
+		<ul class="menu">
+			<li><a href="{{ url_for('index')}}">Incio</a></li>
+			<li><a href="{{url_for('reservaVuelos')}}">Reserva de vuelos</a></li>
+			<li><a href="">Usuarios</a>
+				<ul class="submenu">
+					<li><a href="{{ url_for('loginUsuario')}}">Login Usuario</a></li>
+					<li><a href="{{ url_for('registroUsuario')}}">Registro Usuario</a></li>
+				</ul>
+			</li>
+			<li><a href="">Intranet</a>
+				<ul class="submenu">
+					<li><a href="{{ url_for('loginPilotos')}}">Pilotos</a></li>   
+					<li><a href="{{ url_for('loginAdmin')}}">Aministrador</a></li>  
+				</ul>
+			</li>
+		</ul>
+		<br>
+	</nav>
+	<article class="articulo">
+		<form action="{{url_for('registroUsuario')}}" method="post" name="formRegistroUsuario" onsubmit="formRegistroUsuario">
+
+            <label for="nombre">Nombre</label><br>
+            <input type="text" name="nombre" id="nombre" value=""><br>
+
+            <label for="correo">Correo</label><br>
+            <input type="amail" name="correo" id="correo" value=""><br>
+
+            <label for="confcorreo">Confirmacion Correo</label>
+            <input type="amail" name="confcorreo" id="confcorreo" value=""><br>
+
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" id="password" value=""><br>
+
+            <input type="checkbox" name="declara" id="declara">
+
+            <label for="declara">Declaro haber leido y acepto las condiciones generales del programa y la normatividad sobre protreccion de datos</label><br>
+
+            <input type="submit" value="Enviar" name="enviar"></a><br>
+
+        </form>
+	</article>
+</body>
+
+<footer class="footer">Pie de pagina...........</footer>
+</html>

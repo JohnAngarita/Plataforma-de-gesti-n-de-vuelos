@@ -1,0 +1,41 @@
+.articulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    width: 250px;
+    margin: auto;
+    background-color: rgb(197, 187, 202);
+    box-shadow: 1px 1px 7px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    text-align: center;
+    padding: 30px;
+}
+
+#searchform{
+    width: 90%;
+    margin: auto;
+    background-color: rgb(197, 187, 202);
+    box-shadow: 1px 1px 7px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    text-align: center;
+    padding: 30px;
+}
+
+#addVuelo{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+}
+
+#alto{
+    height: 40px;
+}
+
+
