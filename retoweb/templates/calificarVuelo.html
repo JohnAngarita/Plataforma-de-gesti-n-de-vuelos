@@ -1,19 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="calificarVuelos.css">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calificar vuelos</title>
-</head>
-<body>
-    <form action="">
-        <h1>Calificación y comentarios</h1>
-        <p>Queremos saber como fue tu experiencia al volar con nosotros. <br> Dejanos tu calificación y tus comentarios para seguir mejorando en nuestros vuelos</p>
-        <input type="text" name="SeleccionarVuelo" placeholder="Seleccionar vuelo">
-        <textarea name="comentario" placeholder="Escribe tu comentario"></textarea>
-        <input type="button" value="Enviar" id="enviarComentario">
-    </form>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="Yon Manchego">
+		<meta name="decription" content="Pagina aeropuerto Letizia Amazonas Colombia">
+		<title>Calificar Vuelo</title>
+	
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/menu.css') }}">
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/grid.css') }}">
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/form.css') }}">
+		<script src="{{ url_for('static',filename='validarformulario.js') }}"> </script>
+		<link rel="shortcut icon" href="{{url_for ('static', filename = './img/airplaneshape_119680.ico')}}" type="image/x-icon">
+		
+	</head>
+
+<body class="grid-container">
+	
+	<header class="header"><h3>Pagina base para desarollo de proyecto</h1></header>
+	<nav class="navbar">
+		<ul class="menu">
+			<li><a href="{{ url_for('index')}}">Inicio</a></li>
+			<li><a href="{{url_for('reservaVuelos')}}">Reserva de vuelos</a></li>
+			<li><a href="">Usuarios</a>
+				<ul class="submenu">
+					<li><a href="{{ url_for('loginUsuario')}}">Login Usuario</a></li>
+					<li><a href="{{ url_for('registroUsuario')}}">Registro Usuario</a></li>
+				</ul>
+			</li>
+			<li><a href="">Intranet</a>
+				<ul class="submenu">
+					<li><a href="{{ url_for('loginPilotos')}}">Pilotos</a></li>   
+					<li><a href="{{ url_for('loginAdmin')}}">Administrador</a></li>
+				</ul>
+			</li>
+		</ul>
+		<br>
+	</nav>
+	<article class="articulo">
+        <form action="" width="90%">
+            <div>
+                <h1>Calificación y comentarios</h1>
+                <p>Queremos saber como fue tu experiencia al volar con nosotros. 
+                    <br> Dejanos tu calificación y tus comentarios para seguir mejorando en nuestros vuelos</p>
+                <br><br>
+            </div>
+            
+            <div>
+                <label for="origen">Seleccione Vuelo</label>
+                <select name="vuelo">
+                    <option value="codVuelo">1</option>
+                    <option value="codVuelo">2</option>
+                    <option value="codVuelo">3</option>
+                    <option value="codVuelo">4</option>
+                    <option value="codVuelo">5</option>
+                </select>
+                <br><br>
+            </div>
+            <div>
+                <textarea name="comentario" placeholder="Escribe tu comentario"></textarea>
+                <br><br>
+            </div>
+            
+            <div>
+                <input type="submit" class="button" name="actualizar" onclick="hizoClick()" value="Calificar">   
+                <input type="button" onclick="history.back()" name="volver atrás" value="Cancelar">
+            </div> 
+        </form>
+    </article>
 </body>
+
+<script>
+	function hizoClick() {
+	  alert("Gracias por su calificación");
+	}
+</script>
+
+<footer class="footer">Pie de pagina...........</footer>
 </html>

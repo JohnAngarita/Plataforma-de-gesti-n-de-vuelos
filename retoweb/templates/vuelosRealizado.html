@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="Yon Manchego">
+		<meta name="decription" content="Pagina aeropuerto Letizia Amazonas Colombia">
+		<title>Vuelos Realizados</title>
+	
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/menu.css') }}">
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/grid.css') }}">
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/form.css') }}">
+		<script src="{{ url_for('static',filename='validarformulario.js') }}"> </script>
+		<link rel="shortcut icon" href="{{url_for ('static', filename = './img/airplaneshape_119680.ico')}}" type="image/x-icon">
+		
+	</head>
+
+<body class="grid-container">
+	
+	<header class="header"><h3>Pagina base para desarollo de proyecto</h1></header>
+	<nav class="navbar">
+		<ul class="menu">
+			<li><a href="{{ url_for('index')}}">Inicio</a></li>
+			<li><a href="{{url_for('reservaVuelos')}}">Reserva de vuelos</a></li>
+			<li><a href="">Usuarios</a>
+				<ul class="submenu">
+					<li><a href="{{ url_for('loginUsuario')}}">Login Usuario</a></li>
+					<li><a href="{{ url_for('registroUsuario')}}">Registro Usuario</a></li>
+				</ul>
+			</li>
+			<li><a href="">Intranet</a>
+				<ul class="submenu">
+					<li><a href="{{ url_for('loginPilotos')}}">Pilotos</a></li>   
+					<li><a href="{{ url_for('loginAdmin')}}">Administrador</a></li>
+				</ul>
+			</li>
+		</ul>
+		<br>
+	</nav>
+	<article class="articulo">
+		<form id="searchform" action="{{url_for('registroVuelo')}}" method="post" name="formRegistroVuelo" onsubmit="formRegistroVuelo">
+
+			<div>
+				<label style=" font-weight: bold;size: 26px;"><strong>LISTADO DE VUELOS REALIZADOS</strong></label>
+				<br><br>
+			</div>
+
+			<table>
+				<tr></tr>
+				<tr id="cabecera" class="cab">
+					<td><label># Vuelo</label></td>
+					<td><label >Aerolinea</label></td>
+					<td><label >Origen</label></td>
+					<td><label >Destino</label></td>
+					<td><label >Fecha</label></td>
+					<td><label >Hora</label></td>
+					<td><label >Avion</label></td>
+					<td><label >Piloto</label></td>
+					<td><label >Estado</label></td>
+					<td></td>
+				</tr>
+
+				<tr id="altoForm">
+					<td><label >1</label></td>
+					<td><label >Avianca</label></td>
+					<td><label >Leticia</label></td>
+					<td><label >Bogota</label></td>
+					<td><label >28-09-2021</label></td>
+					<td><label >10:00 am</label></td>
+					<td><label >Airbus A330</label></td>
+					<td><label >John Angarita</label></td>
+					<td><label >Completo</label></td>
+					<td>
+						<a href="{{ url_for('calificarVuelo')}}">
+							<img src="{{ url_for('static', filename='img/calificacion.png') }}" disable/>
+						</a>
+						<a href="{{ url_for('verComentarios')}}">
+							<img src="{{ url_for('static', filename='img/comentario.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td><label >2</label></td>
+					<td><label >American Airlines</label></td>
+					<td><label >Leticia</label></td>
+					<td><label >Barranquilla</label></td>
+					<td><label >28-09-2021</label></td>
+					<td><label >11:00 am</label></td>
+					<td><label >HK5335</label></td>
+					<td><label >Yeimer Rodelo</label></td>
+					<td><label >Completo</label></td>
+					<td>
+						<a href="{{ url_for('calificarVuelo')}}">
+							<img src="{{ url_for('static', filename='img/calificacion.png') }}" disable/>
+						</a>
+						<a href="{{ url_for('verComentarios')}}">
+							<img src="{{ url_for('static', filename='img/comentario.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td><label >3</label></td>
+					<td><label >Avianca</label></td>
+					<td><label >Leticia</label></td>
+					<td><label >Bogota</label></td>
+					<td><label >28-09-2021</label></td>
+					<td><label >10:00 am</label></td>
+					<td><label >Airbus A320</label></td>
+					<td><label >Jose Pinto</label></td>
+					<td><label >Completo</label></td>
+					<td>
+						<a href="{{ url_for('calificarVuelo')}}">
+							<img src="{{ url_for('static', filename='img/calificacion.png') }}" disable/>
+						</a>
+						<a href="{{ url_for('verComentarios')}}">
+							<img src="{{ url_for('static', filename='img/comentario.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td><label >4</label></td>
+					<td><label >LATAM</label></td>
+					<td><label >Leticia</label></td>
+					<td><label >Santa Marta</label></td>
+					<td><label >29-09-2021</label></td>
+					<td><label >10:00 am</label></td>
+					<td><label >Airbus A330</label></td>
+					<td><label >John Angarita</label></td>
+					<td><label >Cancelado</label></td>
+					<td>
+						<a href="{{ url_for('calificarVuelo')}}">
+							<img src="{{ url_for('static', filename='img/calificacion.png') }}" disable/>
+						</a>
+						<a href="{{ url_for('verComentarios')}}">
+							<img src="{{ url_for('static', filename='img/comentario.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td><label >5</label></td>
+					<td><label >Viva Air</label></td>
+					<td><label >Leticia</label></td>
+					<td><label >Bogota</label></td>
+					<td><label >29-09-2021</label></td>
+					<td><label >10:00 am</label></td>
+					<td><label >Airbus A330</label></td>
+					<td><label >John Angarita</label></td>
+					<td><label >En Vuelo</label></td>
+					<td>
+						<a href="{{ url_for('calificarVuelo')}}">
+							<img src="{{ url_for('static', filename='img/calificacion.png') }}" disable/>
+						</a>
+						<a href="{{ url_for('verComentarios')}}">
+							<img src="{{ url_for('static', filename='img/comentario.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td><label >6</label></td>
+					<td><label >Copa Airlines</label></td>
+					<td><label >Leticia</label></td>
+					<td><label >Bogota</label></td>
+					<td><label >30-09-2021</label></td>
+					<td><label >10:00 am</label></td>
+					<td><label >ATR-72</label></td>
+					<td><label >John Angarita</label></td>
+					<td><label >Programado</label></td>
+					<td>
+						<a href="{{ url_for('calificarVuelo')}}">
+							<img src="{{ url_for('static', filename='img/calificacion.png') }}" disable/>
+						</a>
+						<a href="{{ url_for('verComentarios')}}">
+							<img src="{{ url_for('static', filename='img/comentario.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+			</table> 
+        </form>
+	</article>
+</body>
+
+<footer class="footer">Pie de pagina...........</footer>
+</html>

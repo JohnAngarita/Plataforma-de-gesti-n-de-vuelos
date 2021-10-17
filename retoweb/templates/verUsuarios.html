@@ -1,18 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="verUsuarios.css">
-  <title>Ver usuarios</title>
-</head>
-<body>
-  <section class="form-register">
-    <h4>Ver usuarios</h4>
-    <input class="controls" type="text" name="Codigo" id="Codigo" placeholder="Codigo del vuelo">
-    <input class="controls" type="text" name="Codigo" id="Nombre" placeholder="Ingrese su nombre">
-    <input class="botons" type="submit" value="Ver usuarios">
-  </section>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="Yon Manchego">
+		<meta name="decription" content="Pagina aeropuerto Letizia Amazonas Colombia">
+		<title>Listado Usuario</title>
+	
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/menu.css') }}">
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/grid.css') }}">
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/form.css') }}">
+		<script src="{{ url_for('static',filename='validarformulario.js') }}"> </script>
+		<link rel="shortcut icon" href="{{url_for ('static', filename = './img/airplaneshape_119680.ico')}}" type="image/x-icon">
+		
+	</head>
+
+<body class="grid-container">
+	
+	<header class="header"><h3>Pagina base para desarollo de proyecto</h1></header>
+	<nav class="navbar">
+		<ul class="menu">
+			<li><a href="{{ url_for('index')}}">Inicio</a></li>
+			<li><a href="{{url_for('reservaVuelos')}}">Reserva de vuelos</a></li>
+			<li><a href="">Usuarios</a>
+				<ul class="submenu">
+					<li><a href="{{ url_for('loginUsuario')}}">Login Usuario</a></li>
+					<li><a href="{{ url_for('registroUsuario')}}">Registro Usuario</a></li>
+					<li><a href="{{ url_for('verUsuarios')}}">Ver Usuarios</a></li>
+				</ul>
+			</li>
+			<li><a href="">Intranet</a>
+				<ul class="submenu">
+					<li><a href="{{ url_for('loginPilotos')}}">Pilotos</a></li>   
+					<li><a href="{{ url_for('loginAdmin')}}">Administrador</a></li>
+					<li><a href="{{ url_for('busquedaVuelo')}}" >Vuelos</a></li>
+				</ul>
+			</li>
+		</ul>
+		<br>
+	</nav>
+	<article class="articulo">
+		<form id="searchform" action="{{url_for('registroVuelo')}}" method="post" name="formRegistroVuelo" onsubmit="formRegistroVuelo">
+
+			<div>
+				<label style=" font-weight: bold;size: 26px;"><strong>LISTADO DE USUARIOS</strong></label>
+				<br><br>
+			</div>
+
+			<table>
+				<tr></tr>
+				<tr></tr>
+				<tr>
+					<td colspan="2">
+						<input type="search" name="busquedamusica" placeholder="# Codigo">
+						<input type="submit" value="Buscar">
+					</td>
+					
+					<td></td>
+					<td></td>
+					<td>
+						<a href="{{ url_for('registroUsuario')}}">
+							<img src="{{ url_for('static', filename='img/add.png') }}"/>
+						</a>
+					</td>
+				</tr>
+				<tr id="cabecera" class="cab">
+					<td><label>Codigo</label></td>
+					<td><label >Nombre y Apellido</label></td>
+					<td><label >Correo</label></td>
+					<td><label >Rol</label></td>
+					<td></td>
+				</tr>
+
+				<tr id="altoForm">
+					<td><label >1</label></td>
+					<td><label >John Angarita</label></td>
+					<td><label >ja@ja.com</label></td>
+					<td><label >Usuario</label></td>
+					
+					<td>
+						<a href="{{ url_for('editarUsuario')}}">
+							<img src="{{ url_for('static', filename='img/edit.png') }}" disable/>
+						</a>
+						<a>
+							<img src="{{ url_for('static', filename='img/delete.png') }}" onclick="hizoClick()"/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td><label >2</label></td>
+					<td><label >Yeimer Rodelo</label></td>
+					<td><label >yr@yr.com</label></td>
+					<td><label >Piloto</label></td>
+					
+					<td>
+						<a href="{{ url_for('editarUsuario')}}">
+							<img src="{{ url_for('static', filename='img/edit.png') }}" disable/>
+						</a>
+						<a>
+							<img src="{{ url_for('static', filename='img/delete.png') }}" onclick="hizoClick()"/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td><label >3</label></td>
+					<td><label >Jose Pinto</label></td>
+					<td><label >jp@jp.com</label></td>
+					<td><label >Piloto</label></td>
+					
+					<td>
+						<a href="{{ url_for('editarUsuario')}}">
+							<img src="{{ url_for('static', filename='img/edit.png') }}" disable/>
+						</a>
+						<a>
+							<img src="{{ url_for('static', filename='img/delete.png') }}" onclick="hizoClick()"/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td><label >4</label></td>
+					<td><label >Yon Manchengo</label></td>
+					<td><label >ym@ym.com</label></td>
+					<td><label >Administrador</label></td>
+					
+					<td>
+						<a href="{{ url_for('editarUsuario')}}">
+							<img src="{{ url_for('static', filename='img/edit.png') }}" disable/>
+						</a>
+						<a>
+							<img src="{{ url_for('static', filename='img/delete.png') }}" onclick="hizoClick()"/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td><label >5</label></td>
+					<td><label >Oscar</label></td>
+					<td><label >o@o.com</label></td>
+					<td><label >Usuario</label></td>
+					
+					<td>
+						<a href="{{ url_for('editarUsuario')}}">
+							<img src="{{ url_for('static', filename='img/edit.png') }}" disable/>
+						</a>
+						<a>
+							<img src="{{ url_for('static', filename='img/delete.png') }}" onclick="hizoClick()"/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td><label >6</label></td>
+					<td><label >Pedro Perez</label></td>
+					<td><label >ja@ja.com</label></td>
+					<td><label >Administrador</label></td>
+					
+					<td>
+						<a href="{{ url_for('editarUsuario')}}">
+							<img src="{{ url_for('static', filename='img/edit.png') }}" disable/>
+						</a>
+						<a>
+							<img src="{{ url_for('static', filename='img/delete.png') }}" onclick="hizoClick()"/>
+						</a>
+					</td>
+				</tr>
+			</table> 
+        </form>
+	</article>
 </body>
+
+<script>
+	function hizoClick() {
+	  alert("Usuario Eliminado");
+	}
+</script>
+
+<footer class="footer">Pie de pagina...........</footer>
 </html>

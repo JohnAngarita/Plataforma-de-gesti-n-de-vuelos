@@ -19,7 +19,7 @@
 	<header class="header"><h3>Pagina base para desarollo de proyecto</h1></header>
 	<nav class="navbar">
 		<ul class="menu">
-			<li><a href="{{ url_for('index')}}">Incio</a></li>
+			<li><a href="{{ url_for('index')}}">Inicio</a></li>
 			<li><a href="{{url_for('reservaVuelos')}}">Reserva de vuelos</a></li>
 			<li><a href="">Usuarios</a>
 				<ul class="submenu">
@@ -30,26 +30,27 @@
 			<li><a href="">Intranet</a>
 				<ul class="submenu">
 					<li><a href="{{ url_for('loginPilotos')}}">Pilotos</a></li>   
-					<li><a href="{{ url_for('loginAdmin')}}">Aministrador</a></li>  
+					<li><a href="{{ url_for('loginAdmin')}}">Administrador</a></li>  
 				</ul>
 			</li>
 		</ul>
 		<br>
 	</nav>
 	<article class="articulo">
-		<form action="{{url_for('loginAdmin')}}" method="post" name="formLogAdmin" onsubmit="formLogAdmin">
+		<form>
 
-		<label for="nombre">Nombre</label><br>
-		<input type="text" name="nombre" id="nombre" value=""><br>
+			<label for="nombre">Nombre</label><br>
+			<input type="text" name="nombre" id="nombre" value=""><br>
 
-		<label for="password">Contraseña</label>
-		<input type="password" name="password" id="password" value=""><br>
+			<label for="password">Contraseña</label>
+			<input type="password" name="password" id="password" value=""><br><br><br>
 
-		<input type="submit" value="Enviar" name="enviar"><br>
+			<button><a href="{{ url_for('busquedaVuelo')}}">Enviar</a></button>
+			<button><a href="{{ url_for('loginAdmin')}}">Olvido su Contraseña</a></button>
 
-	  <a href="restapass.html">Olvido su Contraseña</a>
-
-	</form></article>
+			
+		</form>
+	</article>
 </body>
 
 <footer class="footer">Pie de pagina...........</footer>

@@ -47,6 +47,38 @@ def busquedaVuelo():
 @app.route("/eliminarVuelo")
 def eliminarVuelo():
     return render_template("eliminarVuelo.html")
+
+@app.route("/vuelosRealizado")
+def vuelosRealizado():
+    return render_template("vuelosRealizado.html")
+
+@app.route("/loginUsuarioRes")
+def loginUsuarioRes():
+    return render_template("loginUsuarioRes.html")
+
+@app.route("/verUsuarios")
+def verUsuarios():
+    return render_template("verUsuarios.html")
+
+@app.route("/eliminarUsuario")
+def eliminarUsuario():
+    return render_template("eliminarUsuario.html")
+
+@app.route("/editarUsuario")
+def editarUsuario():
+    return render_template("editarUsuario.html")
+
+@app.route("/calificarVuelo")
+def calificarVuelo():
+    return render_template("calificarVuelo.html")
+
+@app.route("/verComentarios")
+def verComentarios():
+    return render_template("verComentarios.html")
+
+
+
+
     
  
    

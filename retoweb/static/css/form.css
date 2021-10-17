@@ -30,6 +30,18 @@ form{
     font-weight: bold;
 }
 
+#cabecera{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#cab{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
 table {
     width: 100%;
 }

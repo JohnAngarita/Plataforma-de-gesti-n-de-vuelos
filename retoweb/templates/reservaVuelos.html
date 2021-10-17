@@ -19,7 +19,7 @@
 	<header class="header"><h3>Pagina base para desarollo de proyecto</h1></header>
 	<nav class="navbar">
 		<ul class="menu">
-			<li><a href="{{ url_for('index')}}">Incio</a></li>
+			<li><a href="{{ url_for('index')}}">Inicio</a></li>
 			<li><a href="{{url_for('reservaVuelos')}}">Reserva de vuelos</a></li>
 			<li><a href="">Usuarios</a>
 				<ul class="submenu">
@@ -30,16 +30,276 @@
 			<li><a href="">Intranet</a>
 				<ul class="submenu">
 					<li><a href="{{ url_for('loginPilotos')}}">Pilotos</a></li>   
-					<li><a href="{{ url_for('loginAdmin')}}">Aministrador</a></li>  
+					<li><a href="{{ url_for('loginAdmin')}}">Administrador</a></li>
 				</ul>
 			</li>
 		</ul>
 		<br>
 	</nav>
-    <article class="articulo">
-        <p><a href="{{ url_for('loginUsuario')}}">Usuario Registrado</a>
-        <br><br>
-        <a href="{{ url_for('registroUsuario')}}">Registro Nuvo Usuario</a></p></article>
+	<article class="articulo">
+		<form id="searchform" action="{{url_for('registroVuelo')}}" method="post" name="formRegistroVuelo" onsubmit="formRegistroVuelo">
+			<table>
+				<tr></tr>
+				<tr>
+                    <th>Aerolínea</th>
+                    <th># Vuelo</th>
+                    <th>Origen</th>
+                    <th>Tiempo</th>
+                    <th>Estado</th>
+                    <th></th>
+                </tr>
+
+				<tr id="altoForm">
+					<td>Avianca</td>
+					<td>8462</td>
+					<td>Bogotá</td>
+					<td>08:15</td>
+					<td>Aterrizó</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td>Avianca</td>
+					<td>8532</td>
+					<td>Bogotá</td>
+					<td>10:19</td>
+					<td>Itinerario</td>
+					<td>
+						<a href="{{ url_for('loginUsuarioRes')}}">
+							<img src="{{ url_for('static', filename='img/reserva.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td>LATAM</td>
+					<td>4124</td>
+					<td>Bogotá</td>
+					<td>12:03</td>
+					<td>Itinerario</td>
+
+
+					<td>
+						<a href="{{ url_for('loginUsuarioRes')}}">
+							<img src="{{ url_for('static', filename='img/reserva.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td>Spirit</td>
+					<td>0238</td>
+					<td>Fort Lauderdale</td>
+					<td>12:21</td>
+					<td>Itinerario</td>
+
+					<td>
+						<a href="{{ url_for('loginUsuarioRes')}}">
+							<img src="{{ url_for('static', filename='img/reserva.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td>American Airlines</td>
+					<td>1125</td>
+					<td>Miami</td>
+					<td>12:25</td>
+					<td>Itinerario</td>
+
+
+					<td>
+						<a href="{{ url_for('loginUsuarioRes')}}">
+							<img src="{{ url_for('static', filename='img/reserva.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td>Avianca</td>
+					<td>9416</td>
+					<td>Bogotá</td>
+					<td>14:14</td>
+					<td>Itinerario</td>
+
+					<td>
+						<a href="{{ url_for('loginUsuarioRes')}}">
+							<img src="{{ url_for('static', filename='img/reserva.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td>Avianca</td>
+					<td>8400</td>
+					<td>Bogotá</td>
+					<td>15:24</td>
+					<td>Itinerario</td>
+					<td>
+						<a href="{{ url_for('loginUsuarioRes')}}">
+							<img src="{{ url_for('static', filename='img/reserva.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td>LATAM</td>
+					<td>4320</td>
+					<td>Cali</td>
+					<td>15:30</td>
+					<td>Itinerario</td>
+					<td>
+						<a href="{{ url_for('loginUsuarioRes')}}">
+							<img src="{{ url_for('static', filename='img/reserva.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td>Avianca</td>
+					<td>9430</td>
+					<td>Bogotá</td>
+					<td>16:09</td>
+					<td>Itinerario</td>
+					<td>
+						<a href="{{ url_for('loginUsuarioRes')}}">
+							<img src="{{ url_for('static', filename='img/reserva.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+	
+				<tr id="altoForm">
+					<td>LATAM</td>
+					<td>4032</td>
+					<td>Medellín</td>
+					<td>16:39</td>
+					<td>Itinerario</td>
+					<td>
+						<a href="{{ url_for('loginUsuarioRes')}}">
+							<img src="{{ url_for('static', filename='img/reserva.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td>Avianca</td>
+					<td>8528</td>
+					<td>Bogotá</td>
+					<td>17:49</td>
+					<td>Itinerario</td>
+					<td>
+						<a href="{{ url_for('loginUsuarioRes')}}">
+							<img src="{{ url_for('static', filename='img/reserva.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td>LATAM</td>
+					<td>4126</td>
+					<td>Bogotá</td>
+					<td>18:08</td>
+					<td>Itinerario</td>
+					<td>
+						<a href="{{ url_for('loginUsuarioRes')}}">
+							<img src="{{ url_for('static', filename='img/reserva.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td>Avianca</td>
+					<td>8489</td>
+					<td>Bogotá</td>
+					<td>18:34</td>
+					<td>Itinerario</td>
+					<td>
+						<a href="{{ url_for('loginUsuarioRes')}}">
+							<img src="{{ url_for('static', filename='img/reserva.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td>American Airlines</td>
+					<td>1149</td>
+					<td>Miami</td>
+					<td>19:50</td>
+					<td>Itinerario</td>
+					<td>
+						<a href="{{ url_for('loginUsuarioRes')}}">
+							<img src="{{ url_for('static', filename='img/reserva.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td>LATAM</td>
+					<td>4128</td>
+					<td>Bogotá</td>
+					<td>20:33</td>
+					<td>Itinerario</td>
+					<td>
+						<a href="{{ url_for('loginUsuarioRes')}}">
+							<img src="{{ url_for('static', filename='img/reserva.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td>Avianca</td>
+					<td>9512</td>
+					<td>Bogotá</td>
+					<td>20:44</td>
+					<td>Itinerario</td>
+					<td>
+						<a href="{{ url_for('loginUsuarioRes')}}">
+							<img src="{{ url_for('static', filename='img/reserva.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td>LATAM</td>
+					<td>4130</td>
+					<td>Bogotá</td>
+					<td>21:40</td>
+					<td>Itinerario</td>
+					<td>
+						<a href="{{ url_for('loginUsuarioRes')}}">
+							<img src="{{ url_for('static', filename='img/reserva.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td>Avianca</td>
+					<td>9530</td>
+					<td>Bogotá</td>
+					<td>22:54</td>
+					<td>Itinerario</td>
+					<td>
+						<a href="{{ url_for('loginUsuarioRes')}}">
+							<img src="{{ url_for('static', filename='img/reserva.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+
+				<tr id="altoForm">
+					<td>Copa Airlines</td>
+					<td>0826</td>
+					<td>Panamá</td>
+					<td>23:02</td>
+					<td>Itinerario</td>
+					<td>
+						<a href="{{ url_for('loginUsuarioRes')}}">
+							<img src="{{ url_for('static', filename='img/reserva.png') }}" disable/>
+						</a>
+					</td>
+				</tr>
+	
+			</table> 
+        </form>
+	</article>
 </body>
 
 <footer class="footer">Pie de pagina...........</footer>
