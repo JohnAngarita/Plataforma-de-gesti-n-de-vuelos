@@ -1,0 +1,33 @@
+
+{% include 'headerAdm.html' %}
+<br><br>
+<form method="POST" action="/updateAvion" enctype="multipart/form-data">
+    <div class="card">
+        <div class="card-header">
+            Actualizar Avion
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">
+                {% for usu in aviones %}
+                <input type="hidden" value="{{ usu[0] }}" name="idAvion" id="idAvion">
+                <div class="form-group">
+                    <label for="nomAvion">Nombre</label>
+                    <input type="text" value="{{ usu[1] }}" class="form-control" name="nomAvion" id="nomAvion">
+                </div>
+
+                <div class="form-group">
+                    <label for="capAvion">Capacidad</label>
+                    <input type="text" value="{{ usu[2] }}" class="form-control" name="capAvion" id="capAvion">
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" id= "enviar" value="Actualizar">
+                    <a href="{{url_for('verUser')}}" class="btn btn-primary">Regresar</a>
+                </div>
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+</form>
+{% include 'footerAdm.html' %}

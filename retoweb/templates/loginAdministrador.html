@@ -1,0 +1,30 @@
+{% include 'headerAdm.html' %}
+<br><br>
+<form method="POST" action="/logUsuarioAdm" enctype="multipart/form-data">   
+    <div class="card">
+        <div class="card-header">
+            Login Usuarios
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">
+                <div class="form-group">
+                    <label for="userUsuario">Usuario</label>
+                    <input type="text" class="form-control" name="userUsuario" id="userUsuario">
+                </div>
+
+                <div class="form-group">
+                    <label for="contUsuario">Contraseña</label>
+                    <input type="password" class="form-control" name="contUsuario" id="contUsuario">
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" id= "enviar" value="Enviar">
+                    <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+                </div>
+            </p>
+        </div>
+    </div>
+</form>
+
+{% include 'footerAdm.html' %}

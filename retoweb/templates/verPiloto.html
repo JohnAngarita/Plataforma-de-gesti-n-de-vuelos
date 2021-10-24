@@ -1,0 +1,33 @@
+{% include 'headerAdm.html' %}
+<br>
+    <p>Listado de Pilotos</p>
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th colspan="3">
+                    <input type="search" name="busquedamusica" placeholder="# Codigo">
+                    <input type="submit" value="Buscar">
+                </th>
+                <th><a href="{{ url_for('createPiloto') }}" class="btn btn-success">Crear Piloto</a></th>
+            </tr>
+            <tr>
+                <th># Piloto</th>
+                <th>Nombre</th>
+                <th>Experiencia</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fly in pilotos %}
+                <tr>
+                    <td>{{fly[0]}}</td> 
+                    <td>{{fly[1]}}</td> 
+                    <td>{{fly[2]}}</td> 
+                    <td><a class="btn btn-warning" href="/editPiloto/{{fly[0]}}">Editar</a> | 
+                        <a onclick="return confirm('Desea Eliminar el Piloto')" class="btn btn-danger"href="/delPiloto/{{fly[0]}}">Borrar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% include 'footerAdm.html' %}

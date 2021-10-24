@@ -1,0 +1,46 @@
+{% include 'headerAdm.html' %}
+<br>
+    <p>Listado de Usuarios</p>
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th colspan="3">
+                    <input type="search" name="busquedamusica" placeholder="# Codigo">
+                    <input type="submit" value="Buscar">
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th><a href="{{ url_for('addUsuario')}}" class="btn btn-success">Crear Usuario</a></th>
+            </tr>
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre Completo</th>
+                <th>Usuario</th>
+                <th>Sexo</th>
+                <th>Correo</th>
+                <th>Contraseña</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                {% for usu in usuarios %}
+                    <tr>
+                        <td>{{usu[0]}}</td> 
+                        <td>{{usu[1]}}</td> 
+                        <td>{{usu[2]}}</td> 
+                        <td>{{usu[3]}}</td> 
+                        <td>{{usu[4]}}</td>
+                        <td>{{usu[5]}}</td> 
+                        <td>{{usu[6]}}</td> 
+                        <td><a class="btn btn-warning" href="/editUser/{{usu[0]}}">Editar</a> | 
+                            <a onclick="return confirm('Desea Eliminar el Usuario')" class="btn btn-danger"href="/delUser/{{usu[0]}}">Borrar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+{% include 'footerAdm.html' %}

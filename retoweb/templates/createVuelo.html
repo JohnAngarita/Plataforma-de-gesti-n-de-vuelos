@@ -1,0 +1,77 @@
+{% include 'headerAdm.html' %}
+<br><br>
+<form method="POST" action="/addVuelo" enctype="multipart/form-data">   
+    <div class="card">
+        <div class="card-header">
+            Crear Usuarios
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">
+
+                <div class="form-group">
+                    <label for="vueloAerolinea">Aerolinea</label>
+                    
+                    <select class="form-control" name="vueloAerolinea" id="vueloAerolinea">
+                        {% for fly in aerolinea %}
+                            <option value="{{fly[0]}}">{{fly[1]}}</option>
+                        {% endfor %}
+                    </select>
+                    
+                </div>
+
+                <div class="form-group">
+                    <label for="vueloOrigen">Origen</label>
+                    <select class="form-control" name="vueloOrigen" id="vueloOrigen">
+                        {% for fly in ciudad %}
+                            <option value="{{fly[0]}}">{{fly[1]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="vueloDestino">Destino</label>
+                    <select class="form-control" id="vueloDestino" name="vueloDestino" >
+                        {% for fly in ciudad %}
+                            <option value="{{fly[0]}}">{{fly[1]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="vueloFecha">Fecha</label>
+                    <input type="date" class="form-control" name="vueloFecha" id="vueloFecha">
+                </div>
+
+                <div class="form-group">
+                    <label for="vueloHora">Hora</label>
+                    <input type="time" class="form-control" name="vueloHora" id="vueloHora">
+                </div>
+
+                <div class="form-group">
+                    <label for="vueloPiloto">Piloto</label>
+                    <select class="form-control" name="vueloPiloto" id="vueloPiloto">
+                        {% for fly in piloto %}
+                            <option value="{{fly[0]}}">{{fly[1]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="vueloAvion">Avion</label>
+                    <select class="form-control" name="vueloAvion" id="vueloAvion">
+                        {% for fly in avion %}
+                            <option value="{{fly[0]}}">{{fly[1]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" id= "enviar" value="Enviar">
+                    <a href="{{url_for('verVuelo')}}" class="btn btn-primary">Regresar</a>
+                </div>
+            </p>
+        </div>
+    </div>
+</form>
+{% include 'footerAdm.html' %}

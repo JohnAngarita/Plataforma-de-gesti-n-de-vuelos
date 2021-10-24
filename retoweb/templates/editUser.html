@@ -1,0 +1,60 @@
+
+{% include 'headerAdm.html' %}
+<br><br>
+<form method="POST" action="/updateUser" enctype="multipart/form-data">
+    <div class="card">
+        <div class="card-header">
+            Actualizar Usuario
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">
+                {% for usu in usuarios %}
+                <input type="hidden" value="{{ usu[0] }}" name="idUsuario" id="idUsuario">
+                <div class="form-group">
+                    <label for="nomUsuario">Nombre</label>
+                    <input type="text" value="{{ usu[1] }}" class="form-control" name="nomUsuario" id="nomUsuario">
+                </div>
+
+                <div class="form-group">
+                    <label for="userUsuario">Usuario</label>
+                    <input type="text" value="{{ usu[2] }}" class="form-control" name="userUsuario" id="userUsuario">
+                </div>
+
+                <div class="form-group">
+                    <label for="sexoUsuario">Sexo</label>
+                    <select class="form-control" value="{{ usu[3] }}"  id="sexoUsuario" name="sexoUsuario" >
+                        <option value="m">Hombre</option>
+                        <option value="f">Mujer</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="emailUsuario">Correo</label>
+                    <input type="text" value="{{ usu[4] }}"  class="form-control" name="emailUsuario" id="emailUsuario">
+                </div>
+
+                <div class="form-group">
+                    <label for="contUsuario">Contraseña</label>
+                    <input type="password" value="{{ usu[5] }}"  class="form-control" name="contUsuario" id="contUsuario">
+                </div>
+
+                <div class="form-group">
+                    <label for="rolUsuario">Rol</label>
+                    <select class="form-control" name="rolUsuario" id="rolUsuario" value="{{ usu[6] }}" >
+                        <option value="1">Usuario</option>
+                        <option value="2">Piloto</option>
+                        <option value="3">Administrador</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" id= "enviar" value="Actualizar">
+                    <a href="{{url_for('verUser')}}" class="btn btn-primary">Regresar</a>
+                </div>
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+</form>
+{% include 'footerAdm.html' %}

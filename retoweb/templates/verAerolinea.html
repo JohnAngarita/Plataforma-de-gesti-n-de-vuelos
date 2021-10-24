@@ -1,0 +1,31 @@
+{% include 'headerAdm.html' %}
+<br>
+    <p>Listado de Aerolineas</p>
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th colspan="2">
+                    <input type="search" name="busquedamusica" placeholder="# Codigo">
+                    <input type="submit" value="Buscar">
+                </th>
+                <th><a href="{{ url_for('createAerolinea') }}" class="btn btn-success">Crear Aerolinea</a></th>
+            </tr>
+            <tr>
+                <th># Aerolinea</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fly in aerolineas %}
+                <tr>
+                    <td>{{fly[0]}}</td> 
+                    <td>{{fly[1]}}</td> 
+                    <td><a class="btn btn-warning" href="/editAerolinea/{{fly[0]}}">Editar</a> | 
+                        <a onclick="return confirm('Desea Eliminar la Aerolinea')" class="btn btn-danger"href="/delAerolinea/{{fly[0]}}">Borrar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% include 'footerAdm.html' %}

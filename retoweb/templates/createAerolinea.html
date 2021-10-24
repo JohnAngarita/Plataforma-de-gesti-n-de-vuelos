@@ -1,0 +1,25 @@
+{% include 'headerAdm.html' %}
+<br><br>
+<form method="POST" action="/addAerolinea" enctype="multipart/form-data">   
+    <div class="card">
+        <div class="card-header">
+            Crear Aerolinea
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">
+
+                <div class="form-group">
+                    <label for="nomAerolinea">Nombre</label>
+                    <input type="text" class="form-control" name="nomAerolinea" id="nomAerolinea">
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" id= "enviar" value="Enviar">
+                    <a href="{{url_for('verAerolinea')}}" class="btn btn-primary">Regresar</a>
+                </div>
+            </p>
+        </div>
+    </div>
+</form>
+{% include 'footerAdm.html' %}

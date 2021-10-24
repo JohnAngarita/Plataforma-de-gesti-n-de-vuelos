@@ -1,0 +1,45 @@
+{% include 'headerUser.html' %}
+<br>
+    <p>Listado de Vuelos Realizados</p>
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th colspan="3">
+                    <input type="search" name="busquedamusica" placeholder="# Codigo">
+                    <input type="submit" value="Buscar">
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th hidden># Cod</th>
+                <th># Vuelo</th>
+                <th>Ciudad Origen</th>
+                <th>Ciudad Destino</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for fly in vuelos %}
+                <tr>
+                    <td hidden>{{fly[0]}}</td> 
+                    <td>{{fly[1]}}</td> 
+                    <td>{{fly[2]}}</td> 
+                    <td>{{fly[4]}}</td> 
+                    <td>{{fly[5]}}</td> 
+                    <td>{{fly[6]}}</td>
+
+                    
+                    <td>
+                        <a class="btn btn-warning" href="/createCalificacion/{{fly[1]}}/{{fly[6]}}">Calificar</a> | 
+                        <a class="btn btn-warning" href="/createComentario/{{fly[1]}}/{{fly[6]}}">Comentarios</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% include 'footerUser.html' %}

@@ -1,58 +1,30 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
-		<meta charset="utf-8">
-		<meta name="author" content="Yon Manchego">
-		<meta name="decription" content="Pagina aeropuerto Letizia Amazonas Colombia">
-		<title>Login Usuario</title>
-	
-		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/menu.css') }}">
-		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/grid.css') }}">
-		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/form.css') }}">
-		<script src="{{ url_for('static',filename='validarformulario.js') }}"> </script>
-		<link rel="shortcut icon" href="{{url_for ('static', filename = './img/airplaneshape_119680.ico')}}" type="image/x-icon">
-		
-	</head>
+{% include 'header.html' %}
+<br><br>
+<form method="POST" action="/logUsuario" enctype="multipart/form-data">   
+    <div class="card">
+        <div class="card-header">
+            Login Usuarios
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">
+                <div class="form-group">
+                    <label for="userUsuario">Usuario</label>
+                    <input type="text" class="form-control" name="userUsuario" id="userUsuario">
+                </div>
 
+                <div class="form-group">
+                    <label for="contUsuario">Contraseña</label>
+                    <input type="password" class="form-control" name="contUsuario" id="contUsuario">
+                </div>
 
-<body class="grid-container">
-		
-	<header class="header"><h3>Pagina base para desarollo de proyecto</h1></header>
-	<nav class="navbar">
-		<ul class="menu">
-			<li><a href="{{ url_for('index')}}">Inicio</a></li>
-			<li><a href="{{url_for('reservaVuelos')}}">Reserva de vuelos</a></li>
-			<li><a href="">Usuarios</a>
-				<ul class="submenu">
-					<li><a href="{{ url_for('loginUsuario')}}">Login Usuario</a></li>
-					<li><a href="{{ url_for('registroUsuario')}}">Registro Usuario</a></li>
-				</ul>
-			</li>
-			<li><a href="">Intranet</a>
-				<ul class="submenu">
-					<li><a href="{{ url_for('loginPilotos')}}">Pilotos</a></li>   
-					<li><a href="{{ url_for('loginAdmin')}}">Administrador</a></li>  
-				</ul>
-			</li>
-		</ul>
-		<br>
-	</nav>
-	<article class="articulo">
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" id= "enviar" value="Enviar">
+                    <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+                </div>
+            </p>
+        </div>
+    </div>
+</form>
 
-		<form class="articulo"><article action="{{url_for('loginUsuario')}}" method="post" name="loginUsuario" onsubmit="loginUsuario">
-
-			<label for="nombre">Nombre</label><br>
-			<input type="text" name="nombre" id="nombre" value=""><br>
-
-			<label for="password">Contraseña</label>
-			<input type="password" name="password" id="password" value=""><br><br><br>
-
-			<button><a href="{{ url_for('vuelosRealizado')}}">Enviar</a></button>
-			<button><a href="{{ url_for('loginUsuario')}}">Olvido su Contraseña</a></button>
-
-		</form>
-	</article></article>
-</body>
-
-<footer class="footer">Pie de pagina...........</footer>
-</html>
+{% include 'footer.html' %}

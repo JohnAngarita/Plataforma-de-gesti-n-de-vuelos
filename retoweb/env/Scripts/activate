@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="D:\MinTic\retoweb 2.0\env"
+VIRTUAL_ENV="D:\BD\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

@@ -1,0 +1,28 @@
+
+{% include 'headerAdm.html' %}
+<br><br>
+<form method="POST" action="/updateCiudad" enctype="multipart/form-data">
+    <div class="card">
+        <div class="card-header">
+            Actualizar Ciudad
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">
+                {% for usu in ciudades %}
+                <input type="hidden" value="{{ usu[0] }}" name="idCiudad" id="idCiudad">
+                <div class="form-group">
+                    <label for="nomCiudad">Nombre</label>
+                    <input type="text" value="{{ usu[1] }}" class="form-control" name="nomCiudad" id="nomCiudad">
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" id= "enviar" value="Actualizar">
+                    <a href="{{url_for('verCiudad')}}" class="btn btn-primary">Regresar</a>
+                </div>
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+</form>
+{% include 'footerAdm.html' %}

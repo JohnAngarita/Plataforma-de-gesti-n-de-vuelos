@@ -1,0 +1,30 @@
+{% include 'headerAdm.html' %}
+<br><br>
+<form method="POST" action="/addPiloto" enctype="multipart/form-data">   
+    <div class="card">
+        <div class="card-header">
+            Crear Pilotos
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">
+
+                <div class="form-group">
+                    <label for="nomPiloto">Nombre</label>
+                    <input type="text" class="form-control" name="nomPiloto" id="nomPiloto">
+                </div>
+
+                <div class="form-group">
+                    <label for="expPiloto">Experiencia</label>
+                    <input type="text" class="form-control" name="expPiloto" id="expPiloto">
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" id= "enviar" value="Enviar">
+                    <a href="{{url_for('verPiloto')}}" class="btn btn-primary">Regresar</a>
+                </div>
+            </p>
+        </div>
+    </div>
+</form>
+{% include 'footerAdm.html' %}

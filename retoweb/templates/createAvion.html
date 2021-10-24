@@ -1,0 +1,30 @@
+{% include 'headerAdm.html' %}
+<br><br>
+<form method="POST" action="/addAvion" enctype="multipart/form-data">   
+    <div class="card">
+        <div class="card-header">
+            Crear Avion
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">
+
+                <div class="form-group">
+                    <label for="nomAvion">Nombre</label>
+                    <input type="text" class="form-control" name="nomAvion" id="nomAvion">
+                </div>
+
+                <div class="form-group">
+                    <label for="avionCapacidad">Capacidad</label>
+                    <input type="text" class="form-control" name="avionCapacidad" id="avionCapacidad">
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" id= "enviar" value="Enviar">
+                    <a href="{{url_for('verAvion')}}" class="btn btn-primary">Regresar</a>
+                </div>
+            </p>
+        </div>
+    </div>
+</form>
+{% include 'footerAdm.html' %}

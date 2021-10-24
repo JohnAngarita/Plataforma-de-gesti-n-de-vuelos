@@ -1,137 +1,87 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
-		<meta charset="utf-8">
-		<meta name="author" content="Yon Manchego">
-		<meta name="decription" content="Pagina aeropuerto Letizia Amazonas Colombia">
-		<title>Editar Vuelo</title>
-	
-		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/menu.css') }}">
-		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/grid.css') }}">
-		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/form.css') }}">
-		<script src="{{ url_for('static',filename='validarformulario.js') }}"> </script>
-		<link rel="shortcut icon" href="{{url_for ('static', filename = './img/airplaneshape_119680.ico')}}" type="image/x-icon">
-		
-	</head>
+{% include 'headerAdm.html' %}
+<br><br>
+<form method="POST" action="/updateVuelo" enctype="multipart/form-data">   
+    <div class="card">
+        <div class="card-header">
+            Crear Usuarios
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">
+                {% for usu in vuelos %}
+                <input type="hidden" value="{{ usu[0] }}" name="idVuelo" id="idVuelo">
+                <div class="form-group">
+                    <label for="vueloAerolinea">Aerolinea</label>
+                    <select  value="{{ usu[6] }}" class="form-control" name="vueloAerolinea" id="vueloAerolinea">
+                        {% for fly in aerolinea %}
+                            <option value="{{fly[0]}}">{{fly[1]}}</option>
+                        {% endfor %}
+                    </select>
+                    
+                </div>
 
-<body class="grid-container">
-	
-	<header class="header"><h3>Pagina base para desarollo de proyecto</h1></header>
-	<nav class="navbar">
-		<ul class="menu">
-			<li><a href="{{ url_for('index')}}">Inicio</a></li>
-			<li><a href="{{url_for('reservaVuelos')}}">Reserva de vuelos</a></li>
-			<li><a href="">Usuarios</a>
-				<ul class="submenu">
-					<li><a href="{{ url_for('loginUsuario')}}">Login Usuario</a></li>
-					<li><a href="{{ url_for('registroUsuario')}}">Registro Usuario</a></li>
-				</ul>
-			</li>
-			<li><a href="">Intranet</a>
-				<ul class="submenu">
-					<li><a href="{{ url_for('loginPilotos')}}">Pilotos</a></li>   
-					<li><a href="{{ url_for('loginAdmin')}}">Administrador</a></li>  
-					<li><a href="{{ url_for('busquedaVuelo')}}">Vuelos</a></li>
-				</ul>
-			</li>
-		</ul>
-		<br>
-	</nav>
-	<article class="articulo">
-		<form>
+                <div class="form-group">
+                    <label for="vueloOrigen">Origen</label>
+                    <select   value="{{ usu[1] }}" class="form-control" name="vueloOrigen" id="vueloOrigen">
+                        {% for fly in ciudad %}
+                            <option value="{{fly[0]}}">{{fly[1]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
-			<table class="menu">
-				<tr id="alto"><td colspan="2"><label id="addVuelo">Editar Vuelo</label></td></tr>
-				<tr></tr>
+                <div class="form-group">
+                    <label for="vueloDestino">Destino</label>
+                    <select class="form-control" id="vueloDestino" name="vueloDestino" >
+                        {% for fly in ciudad %}
+                            <option value="{{fly[0]}}">{{ fly[1] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
-				<tr id="alto">
-					<td><label for="codigo">Codigo Vuelo</label></td>
-					<td><input type="text" value="6" name="cod" id="codigo" disabled></td>
-				</tr>
+                <div class="form-group">
+                    <label for="vueloFecha">Fecha</label>
+                    <input   value="{{ usu[3] }}" type="date" class="form-control" name="vueloFecha" id="vueloFecha">
+                </div>
 
-				<tr id="alto">
-					<td><label for="origen">Origen</label></td>
-					<td><select name="origen" id="ori">
-							<option value="barranquilla">Barranquilla</option>
-							<option value="bogota">Bogota</option>
-							<option value="cali">Cali</option>
-							<option value="medellin">Medellin</option>
-							<option value="leticia">Leticia</option>
-						</select>
-					</td>
-				</tr>
+                <div class="form-group">
+                    <label for="vueloHora">Hora</label>
+                    <input  value="{{ usu[4] }}" type="time" class="form-control" name="vueloHora" id="vueloHora">
+                </div>
 
-				<tr id="alto">
-					<td><label for="destino">Destino</label></td>
-					<td> <select name="destino" id="des">
-							<option value="barranquilla">Barranquilla</option>
-							<option value="bogota">Bogota</option>
-							<option value="cali">Cali</option>
-							<option value="medellin">Medellin</option>
-							<option value="leticia">Leticia</option>
-						</select>
-					</td>
-				</tr>
+                <div class="form-group">
+                    <label for="vueloPiloto">Piloto</label>
+                    <select  value="{{ usu[7] }}" class="form-control" name="vueloPiloto" id="vueloPiloto">
+                        {% for fly in piloto %}
+                            <option value="{{fly[0]}}">{{fly[1]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
-				<tr id="alto">
-					<td><label for="fecha">Fecha</label></td>
-					<td><input type="date" name="date" id="date"></td>
-				</tr>
+                <div class="form-group">
+                    <label for="vueloAvion">Avion</label>
+                    <select  value="{{ usu[5] }}" class="form-control" name="vueloAvion" id="vueloAvion">
+                        {% for fly in avion %}
+                            <option value="{{fly[0]}}">{{fly[1]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
-				<tr id="alto">
-					<td><label for="hora">Hora</label></td>
-					<td><input type="time" name="hora" id="hora"></td>
-				</tr>
+                <div class="form-group">
+                    <label for="vueloEstado">Estado</label>
+                    <select  value="{{ usu[8] }}" class="form-control" name="vueloEstado" id="vueloEstado">
+                        {% for fly in estado %}
+                            <option value="{{fly[0]}}">{{fly[1]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
-				<tr id="alto">
-					<td><label for="piloto">Piloto</label></td>
-					<td><select name="piloto" id="pilot">
-							<option value="jose">Jose Pinto</option>
-							<option value="yon">Yon Manchengo</option>
-							<option value="john">John Angarita</option>
-							<option value="yeimer">Yeimer Rodelo</option>
-						</select>
-					</td>
-				</tr>
-
-				<tr id="alto">
-					<td><label for="avion">Avion</label></td>
-					<td><select name="avion" id="avion">
-							<option value="a330">Airbus A330</option>
-							<option value="hk5335">HK5335</option>
-							<option value="atr72">ATR-72</option>
-							<option value="a330f">Airbus A330F</option>
-						</select>
-					</td>
-				</tr>
-
-				<tr id="alto">
-					<td><label for="aerolinea">Aerolinea</label></td>
-					<td><select name="aerolinea" id="aerolinea">
-							<option value="avianca">Avianca</option>
-							<option value="vivacolombia">Viva Colombia</option>
-							<option value="latm">Latam</option>
-							<option value="america">American Airlines</option>
-						</select>
-					</td>
-				</tr>
-
-				<tr>
-					<td colspan="2">
-						<input type="submit" class="button" name="actualizar" onclick="hizoClick()" value="Actualizar">
-						<input type="button" onclick="history.back()" name="volver atrás" value="Cancelar">
-					</td>
-				</tr>
-			</table> 
-        </form>
-	</article>
-</body>
-
-<script>
-	function hizoClick() {
-	  alert("Vuelo Actualizado");
-	}
-</script>
-
-<footer class="footer">Pie de pagina...........</footer>
-</html>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" id= "enviar" value="enviar">
+                    <a href="{{url_for('verVuelo')}}" class="btn btn-primary">Regresar</a>
+                </div>
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+</form>
+{% include 'footerAdm.html' %}

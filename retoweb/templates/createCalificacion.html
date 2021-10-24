@@ -1,0 +1,42 @@
+{% include 'header.html' %}
+<br><br>
+<form method="POST" action="/addNota" enctype="multipart/form-data">   
+    <div class="card">
+        <div class="card-header">
+            Crear Calificacion
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">
+                {% for fly in vuelos %}
+                    <div class="form-group">
+                        <label for="nomVuelo"># Vuelo</label>
+                        <input type="text" value="{{ fly[0] }}" class="form-control" name="nomVuelo" id="nomVuelo" disabled>
+                    </div>
+                {% endfor %}
+
+                {% for usu in usuarios %}
+                    <div class="form-group">
+                        <label for="usua">Cod Usuario</label>
+                        <input type="text" value="{{ usu[0] }}" class="form-control" name="usua" id="usua" hidden disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="userUsuario">Usuario</label>
+                        <input type="text" value="{{ usu[1] }}" class="form-control" name="userUsuario" id="userUsuario" disabled>
+                    </div>
+                {% endfor %}
+
+                <div class="form-group">
+                    <label for="vueloCalificacion">Calificacion</label>
+                    <input type="textarea" class="form-control" name="vueloCalificacion" id="vueloCalificacion">
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" id= "enviar" value="Enviar">
+                    <a href="{{url_for('verVueloRealizado')}}" class="btn btn-primary">Regresar</a>
+                </div>
+            </p>
+        </div>
+    </div>
+</form>
+{% include 'footer.html' %}

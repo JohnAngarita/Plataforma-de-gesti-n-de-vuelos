@@ -1,0 +1,45 @@
+{% include 'header.html' %}
+<br>
+    <p>Listado de Vuelos</p>
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th colspan="3">
+                    <input type="search" name="busquedamusica" placeholder="# Codigo">
+                    <input type="submit" value="Buscar">
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th># Vuelo</th>
+                <th>Ciudad Origen</th>
+                <th>Ciudad Destino</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Avion</th>
+                <th>Aerolinea</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for fly in vuelos %}
+                <tr>
+                    <td>{{fly[0]}}</td> 
+                    <td>{{fly[2]}}</td> 
+                    <td>{{fly[4]}}</td> 
+                    <td>{{fly[5]}}</td> 
+                    <td>{{fly[6]}}</td>
+                    <td>{{fly[8]}}</td> 
+                    <td>{{fly[10]}}</td>
+                    <td>{{fly[14]}}</td> 
+                    <td><a disable class="btn btn-primary" href="{{url_for('loginUsuario')}}">Reservar</a></td>
+                                      
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% include 'footer.html' %}
