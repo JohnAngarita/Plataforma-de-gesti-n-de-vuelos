@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}<br>
+            {% for error in form.username.errors %}
+            <span style="color: rgba(179, 43, 43, 0.87);">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+		<p>
+            {{ form.nombre.label }}<br>
+            {{ form.nombre(size=32) }}<br>
+            {% for error in form.nombre.errors %}
+            <span style="color: rgba(179, 43, 43, 0.87);">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.email.label }}<br>
+            {{ form.email(size=32) }} <br>
+            {% for error in form.email.errors %}
+            <span style="color: rgba(179, 43, 43, 0.87);">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: rgba(179, 43, 43, 0.87);">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.confirm.label }}<br>
+            {{ form.confirm(size=32) }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: rgba(179, 43, 43, 0.87);">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>{{ form.accept_tos() }} {{ form.accept_tos.label }}</p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

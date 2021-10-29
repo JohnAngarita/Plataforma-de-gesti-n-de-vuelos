@@ -1,0 +1,8 @@
+from app import db
+from app.models import User, Pilot, Admin, Plane, City, Estado, Comment, Vuelo
+db.drop_all()
+db.create_all()
+
+
+
+

@@ -1,0 +1,60 @@
+<!doctype html>
+
+<html lang="es">
+ 
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Yon Manchego">
+        <meta name="decription" content="Pagina aeropuerto Letizia Amazonas Colombia">
+        <link rel="shortcut icon" href="agregar icono" type="image/x-icon">
+		<link rel="stylesheet" href="{{url_for('static', filename = 'css/calificarVuelos.css')}}
+        <link rel="stylesheet" href="{{url_for('static', filename = 'css/menu.css')}}">
+        <link rel="stylesheet" href="/css/grid.css">
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+        <script src="agragar JS"></script>
+        {% if title %}
+        <title>{{ title }} - Aeropuerto</title>
+        {% else %}
+        <title>Aeropuerto</title>
+        {% endif %}
+    </head>
+
+    <body class="grid-container">
+            <header class="header">Aeropuerto ....</header>
+            <nav class="navbar">
+                <ul class="menu">
+                    <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('login') }}">Reserva vuelos</a></li>
+                    <li><a href="">Usuarios</a>
+                        <ul class="submenu">
+                            <li><a href="{{ url_for('login') }}">Usuario Registrado</a></li>
+                            <li><a href="{{ url_for('registrousuario') }}">Nuevo Usuario</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Intranet</a>
+                        <ul class="submenu">
+                            <li><a href="{{ url_for('loginpiloto') }}">Ingreso Pilotos</a></li
+                            <li><a href="{{ url_for('loginadmin') }}">Ingreso Administador</a></li>
+                        </ul>
+                    </li>
+					<li><a href="{{ url_for('logout') }}">Cerrar sesión</a></li>
+                </ul>
+				
+            </nav>
+            <article class="articulo">      
+                <hr>
+				<h1>{{ titulo }}</h1>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% endwith %}
+                {% block content %}{% endblock %}
+            </article>
+        <footer class="footer"> </footer>
+    </body>
+</html>

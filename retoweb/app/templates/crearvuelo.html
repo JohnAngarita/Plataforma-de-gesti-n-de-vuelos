@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+	
+	 <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+		
+			<p>{{ form.origen.label}}<br>{{ form.origen}}<br></p> 
+			<p>{{ form.destino.label}}<br>{{ form.destino}}<br></p> 
+            
+            <p>{{ form.fecha.label}}<br>{{ form.fecha (size=32) }}<br></p> 
+			<p>{{ form.hora.label}}<br>{{ form.hora (size=32) }}<br></p> 
+			<p>{{ form.codigo.label}}<br>{{ form.codigo (size=32) }}<br></p>
+			
+			<p>{{ form.matricula.label}}<br>{{ form.matricula (size=32) }}<br></p> 
+			<p>{{ form.aerolineas.label}}<br>{{ form.aerolineas (size=32) }}<br></p>  
+			<p>{{ form.capacidades.label}}<br>{{ form.capacidades (size=32) }}<br></p> 
+			<p>{{ form.piloto.label}}<br>{{ form.piloto (size=32) }}<br></p> 
+			<p>{{ form.estados.label}}<br>{{ form.estados}}<br></p> 
+			<p>{{ form.submit() }}<br></p>
+			
+		
+		       
+    </form>
+	
+
+	
+	
+    
+{% endblock %}

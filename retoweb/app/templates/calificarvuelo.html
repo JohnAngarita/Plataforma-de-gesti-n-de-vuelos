@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+    <form action="" method="post" novalidate>
+       
+        
+        <p>Queremos saber como fue tu experiencia al volar con nosotros.
+            <br> Dejanos tu calificación y tus comentarios para seguir mejorando en nuestros vuelos</p>
+        <p>
+            {{ form.busquevuelo.label }}<br>
+            {{ form.busquevuelo(size=32) }}<br>
+            {% for error in form.busquevuelo.errors %}
+            <span style="color: rgba(179, 43, 43, 0.87);">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.comentario.label }}<br>
+            {{ form.comentario(size=32) }}<br>
+            {% for error in form.comentario.errors %}
+            <span style="color: rgba(179, 43, 43, 0.87);">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
